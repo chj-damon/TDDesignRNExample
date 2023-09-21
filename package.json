@@ -10,6 +10,15 @@
     "test": "jest"
   },
   "dependencies": {
+    "@td-design/react-native": "^5.1.1",
+    "@td-design/react-native-calendar": "^2.5.1",
+    "@td-design/react-native-image-picker": "^1.7.1",
+    "@td-design/react-native-password": "^2.5.1",
+    "@td-design/react-native-picker": "^2.3.1",
+    "@td-design/react-native-rating": "^2.6.1",
+    "@td-design/react-native-share": "^1.5.1",
+    "@td-design/react-native-tabs": "^4.1.0",
+    "@td-design/rn-hooks": "^2.7.3",
     "react": "18.2.0",
     "react-native": "0.72.4",
     "react-native-gesture-handler": "^2.13.1",

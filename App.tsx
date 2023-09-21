@@ -8,6 +8,7 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
+  Alert,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -15,6 +16,7 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {Button, ThemeProvider} from '@td-design/react-native';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
@@ -73,6 +75,10 @@ function Main(): JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        <Button
+          title="我是Button"
+          onPress={() => Alert.alert('tips', '我是td-design的Button')}
+        />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
@@ -101,7 +107,9 @@ function App() {
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView style={styles.root}>
-        <Main />
+        <ThemeProvider>
+          <Main />
+        </ThemeProvider>
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );
