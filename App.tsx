@@ -8,7 +8,6 @@
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
-  SafeAreaView,
   ScrollView,
   StatusBar,
   StyleSheet,
@@ -16,6 +15,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 import {
   Colors,
@@ -55,7 +56,7 @@ function Section({children, title}: SectionProps): JSX.Element {
   );
 }
 
-function App(): JSX.Element {
+function Main(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -96,7 +97,20 @@ function App(): JSX.Element {
   );
 }
 
+function App() {
+  return (
+    <SafeAreaProvider>
+      <GestureHandlerRootView style={styles.root}>
+        <Main />
+      </GestureHandlerRootView>
+    </SafeAreaProvider>
+  );
+}
+
 const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
